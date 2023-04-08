@@ -5,7 +5,10 @@ import Favs from "./Favs";
 const DentistsContainer = () => {
   const { state, dispatch } = useContext(GlobalContext);
 
-  return <Favs favs={state.favs} dispatch={dispatch} />;
+  return (
+    <div className={state.isDark ? "container-dark" : "container-light"}>
+      <Favs favs={state.favs} dispatch={dispatch} />
+    </div>
+  );
 };
-
 export default DentistsContainer;

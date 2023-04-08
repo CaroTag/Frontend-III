@@ -39,8 +39,8 @@ const DentistCard = ({ users, dispatch, favs }) => {
             >
               <CardHeader
                 avatar={
-                  <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-                    R
+                  <Avatar sx={{ bgcolor: "grey" }} aria-label="recipe">
+                    Dr
                   </Avatar>
                 }
                 title={user.name}
@@ -55,8 +55,7 @@ const DentistCard = ({ users, dispatch, favs }) => {
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                  This impressive paella is a perfect party dish and a fun meal
-                  to
+                  {user.email}
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>

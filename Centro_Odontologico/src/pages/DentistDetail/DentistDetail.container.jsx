@@ -18,7 +18,7 @@ const DentistDetailContainer = () => {
   }, []);
 
   return (
-    <div>
+    <div className={state.isDark ? "container-dark" : "container-light"}>
       <DentistDetail user={state.user} />
     </div>
   );

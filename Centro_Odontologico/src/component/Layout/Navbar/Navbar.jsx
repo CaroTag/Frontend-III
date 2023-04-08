@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppBar, Toolbar, CssBaseline, Typography } from "@mui/material";
 import { NavLink, Outlet } from "react-router-dom";
+import Switch from "@mui/material/Switch";
+import DarkMode from "@mui/icons-material/DarkMode";
 
 import "./Navbar.css";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
 const Navbar = () => {
+  const { state, dispatch } = useContext(GlobalContext);
+
+  const handleChange = () => {
+    dispatch({ type: "SWITCH_MODE" });
+  };
+
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        sx={{ background: state.isDark ? "#063970" : "#1e81b0" }}
+        position="static"
+      >
         <CssBaseline />
         <Toolbar>
           <Typography variant="h4" className="logo">
@@ -15,6 +27,14 @@ const Navbar = () => {
               Centro Odontológico
             </NavLink>
           </Typography>
+
+          {
+            <Switch
+              checked={state.isDark}
+              onChange={handleChange}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          }
 
           <div className="navlinks">
             <NavLink
@@ -41,35 +61,3 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
-//   return (
-//     <div>
-//       <div className="container-navbar ">
-//         <div className="container-items">
-//           <NavLink
-//             to="/Dentistas"
-//             className={({ isActive }) => (isActive ? "activeNavbar" : "navbar")}
-//           >
-//             <button>Nuestros Profesionales</button>
-//           </NavLink>
-
-//           <NavLink
-//             to="/contacto"
-//             className={({ isActive }) => (isActive ? "activeNavbar" : "navbar")}
-//           >
-//             <button>Contacto</button>
-//           </NavLink>
-
-//           <NavLink
-//             to="/favs"
-//             className={({ isActive }) => (isActive ? "activeNavbar" : "navbar")}
-//           >
-//             <button>Favoritos</button>
-//           </NavLink>
-
-//         </div>
-//       </div>
-//       <Outlet />
-//     </div>
-//   );
-// };
