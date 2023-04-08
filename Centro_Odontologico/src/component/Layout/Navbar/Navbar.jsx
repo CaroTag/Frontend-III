@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <>
       <AppBar
-        sx={{ background: state.isDark ? "#063970" : "#1e81b0" }}
+        sx={{ background: state.isDark ? "#2c2c21" : "#1e81b0" }}
         position="static"
       >
         <CssBaseline />

@@ -7,8 +7,10 @@ const Footer = () => {
     <div>
       <Outlet />
       <div className="container-footer">
-        <h3 style={{ color: "black" }}>Telefono: 0387 4244224</h3>
-        <h3 style={{ color: "grey" }}>Pagina web: wwww.clinicadental.com.ar</h3>
+        <h3 style={{ color: "grey" }}>Telefono: 0387 4244224</h3>
+        <h3 style={{ color: "grey" }}>
+          Pagina web: wwww.centroodontologico.com.ar
+        </h3>
       </div>
     </div>
   );

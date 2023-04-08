@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Card from "./FormCard/Card";
-import { Button, TextField } from "@mui/material";
+import { Button, OutlinedInput, TextField } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import "./Contact.css";
+import FormControl, { useFormControl } from "@mui/material/FormControl";
+import Box from "@mui/material/Box";
+import FormHelperText from "@mui/material/FormHelperText";
 
 const Contact = () => {
   const [data, setData] = useState({
@@ -30,7 +33,9 @@ const Contact = () => {
     if (!nameIsValid || !emailIsValid) {
       setError(true);
       if (!nameIsValid && !emailIsValid) {
-        setErrorMessage("El nombre es incorrecto y el email es incorrecto");
+        setErrorMessage(
+          "Por favor verifique su información nuevamente. El nombre es incorrecto y el email es incorrecto"
+        );
       } else if (!nameIsValid) {
         setErrorMessage("El nombre es incorrecto");
       } else {
@@ -46,6 +51,8 @@ const Contact = () => {
       <CssBaseline />
       <Container maxWidth="xl">
         <div className="container">
+          <h1>Contactanos</h1>
+
           <form className="form" onSubmit={handleSubmit}>
             <TextField
               type="text"
@@ -78,7 +85,12 @@ const Contact = () => {
                 {errorMessage}
               </span>
             )}
-
+            <Box component="form" noValidate autoComplete="off">
+              <FormControl sx={{ width: "200px" }}>
+                <OutlinedInput placeholder="Deje su cosulta aqui" />
+                <FormHelperText />
+              </FormControl>
+            </Box>
             <Button type="submit" variant="contained">
               Enviar
             </Button>
