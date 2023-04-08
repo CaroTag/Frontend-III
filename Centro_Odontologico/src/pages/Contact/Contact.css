@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 90%;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 300px;
+  padding: 10px;
+}
+.form > input {
+  height: 60px;
+  padding-left: 10px;
+}
+
+.card {
+  width: 100%;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textCard {
+  color: blue;
+}

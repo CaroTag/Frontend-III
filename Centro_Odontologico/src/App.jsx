@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./component/Layout/Navbar/Navbar";
+import Home from "./pages/Home/home";
+import Favs from "./pages/Favs/Favs.container";
+import Contact from "./pages/Contact/Contact";
+import Dentist from "./pages/DentistDetail/DentistDetail.container";
+import Footer from "./component/Layout/Footer/Footer";
+import GlobalContextProvider from "./contexts/GlobalContext";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <BrowserRouter>
+      <GlobalContextProvider>
+        <div className="App">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Navigate replace to="/home" />} />
+              <Route exact path="/home" element={<Home />} />
+              <Route path="/dentist/:id" element={<Dentist />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/favs" element={<Favs />} />
+              <Route path="*" element={<h1>Not found</h1>} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </GlobalContextProvider>
+    </BrowserRouter>
+  );
 }
-
-export default App
+export default App;
