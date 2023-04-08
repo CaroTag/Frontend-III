@@ -1,0 +1,19 @@
+.card {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid rgb(168, 12, 155);
+  margin-top: 20px;
+}
+
+.textCard1 {
+  color: blue;
+  font-size: small;
+}
+
+.textCard2 {
+  color: rgb(31, 129, 18);
+  font-size: small;
+}
